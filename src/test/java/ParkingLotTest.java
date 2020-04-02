@@ -21,4 +21,14 @@ public class ParkingLotTest {
         boolean check = parkAnalyser.unParkCar();
         Assert.assertEquals(true,check);
     }
+
+    @Test
+    public void checkCondition_whetherParkingLotIsFull_SoThatPutOutSign() {
+       try {
+           boolean check = parkAnalyser.checkFull();
+           Assert.assertEquals(true, check);
+       }catch (ParkingLotException e){
+           e.printStackTrace();
+       }
+    }
 }
