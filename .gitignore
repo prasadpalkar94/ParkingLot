@@ -1,0 +1,9 @@
+.idea/*
+.bat
+*.iws
+*.iml
+*.ipr
+build/*
+gradle/*
+gradlew
+.gradle
