@@ -44,9 +44,20 @@ public class ParkAnalyser {
 
     public boolean unParkCar(Object car) {
         if ( this.car.equals(car)){
+            this.car = null;
             return true;
         }
-        return false;
+        if ( this.car == null ){
+            parkSubscriber.lotAvailable();
+            checkAvailable();
+        }
+        throw new ParkingLotException("Car Not Found",ParkingLotException.ExceptionType.CAR_NOT_FOUND);
+    }
+
+    public void checkAvailable(){
+        for (ParkingLotInterface parkLot: parkList) {
+            parkLot.isLotAvailable();
+        }
     }
 
     public void subscribeOwner(ParkingLotOwner parkSubscriber) {

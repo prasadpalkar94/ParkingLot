@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParkingLotTest" tests="5" skipped="0" failures="0" errors="0" timestamp="2020-04-04T11:50:20" hostname="prasad" time="0.008">
+<testsuite name="ParkingLotTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-04-04T16:25:07" hostname="prasad" time="0.001">
   <properties/>
-  <testcase name="checkCondition_whetherParkingLotIsFull_ShouldReturnTrue" classname="ParkingLotTest" time="0.002"/>
-  <testcase name="checkCondition_whetherParkingLotIsFull_SoThatPutOutSign" classname="ParkingLotTest" time="0.001"/>
-  <testcase name="checkConditionFor_UnParkTheCar_ShouldReturnTrue" classname="ParkingLotTest" time="0.001"/>
-  <testcase name="checkConditionFor_ParkTheCar_ShouldReturnTrue" classname="ParkingLotTest" time="0.0"/>
-  <testcase name="checkCondition_whetherParkingLotIsFull_ShouldRedirectAirportSecurity" classname="ParkingLotTest" time="0.001"/>
+  <testcase name="checkCondition_WhetherParkingLotHasSpaceAvailable" classname="ParkingLotTest" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

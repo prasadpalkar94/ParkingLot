@@ -1,6 +1,6 @@
 public class ParkingLotException extends RuntimeException {
     enum ExceptionType {
-        SPACE_UNAVAILABLE
+        SPACE_UNAVAILABLE,CAR_NOT_FOUND
     }
 
     ExceptionType type;

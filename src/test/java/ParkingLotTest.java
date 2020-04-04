@@ -46,9 +46,10 @@ public class ParkingLotTest {
         try {
               parkAnalyser.parkCar(car);
               parkAnalyser.parkCar(new Object());
-            } catch (ParkingLotException e) { }
-              boolean check = owner.isFull();
-              Assert.assertTrue(check);
+            } catch (ParkingLotException e) {
+            Assert.assertEquals(true,owner.isFull());
+        }
+
      }
 
     @Test
@@ -64,6 +65,16 @@ public class ParkingLotTest {
         }
     }
 
+    @Test
+    public void checkCondition_WhetherParkingLotHasSpaceAvailable() {
+        parkAnalyser.subscribeOwner(owner);
+        try {
+            parkAnalyser.parkCar(car);
+            parkAnalyser.parkCar(new Object());
+        } catch (ParkingLotException e) {
+            Assert.assertEquals(true,owner.isLotAvailable());
+        }
     }
+}
 
 
