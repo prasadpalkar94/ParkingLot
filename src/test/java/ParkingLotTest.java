@@ -6,18 +6,21 @@ public class ParkingLotTest {
     ParkAnalyser parkAnalyser;
     Object car ;
     ParkingLotOwner owner;
+    AirportSecurity airportSecurity;
 
     @Before
     public void setUp() throws Exception {
-        parkAnalyser = new ParkAnalyser(1);
+        parkAnalyser = new ParkAnalyser(2);
         car = new Object();
         owner = new ParkingLotOwner();
+        airportSecurity = new AirportSecurity();
     }
 
     @Test
     public void checkConditionFor_ParkTheCar_ShouldReturnTrue() {
-        boolean check = parkAnalyser.parkCar(car);
-        Assert.assertEquals(true,check);
+            boolean check = parkAnalyser.parkCar(car);
+            Assert.assertEquals(true, check);
+
     }
 
     @Test
@@ -38,7 +41,7 @@ public class ParkingLotTest {
     }
 
     @Test
-    public void checkCondition_whetherParkingLotIsFull_ShouldRedirectSecurityStaff() {
+    public void checkCondition_whetherParkingLotIsFull_ShouldReturnTrue() {
         parkAnalyser.subscribeOwner(owner);
         try {
               parkAnalyser.parkCar(car);
@@ -48,5 +51,19 @@ public class ParkingLotTest {
               Assert.assertTrue(check);
      }
 
+    @Test
+    public void checkCondition_whetherParkingLotIsFull_ShouldRedirectAirportSecurity() {
+
+        parkAnalyser.subscribeParkingLotInterface(airportSecurity);
+        try {
+            parkAnalyser.parkCar(car);
+            parkAnalyser.parkCar(new Object());
+            parkAnalyser.parkCar(car);
+        } catch (ParkingLotException e) {
+            Assert.assertEquals(true,airportSecurity.isFull());
+        }
     }
+
+    }
+
 

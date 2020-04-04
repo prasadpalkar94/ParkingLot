@@ -1,9 +1,8 @@
-public class ParkingLotOwner implements ParkingLotInterface {
+public class AirportSecurity implements ParkingLotInterface {
     private boolean parkEfficiency;
-
     @Override
     public void checkParking() {
-     this.parkEfficiency = true;
+        this.parkEfficiency = true;
     }
 
     @Override
