@@ -3,65 +3,42 @@ import java.util.List;
 
 public class ParkAnalyser {
 
-    private int efficiency ;
+    private int efficiency;
+    private int presentEfficiency;
     private Object car;
-    private ParkingLotOwner parkSubscriber;
-    private AirportSecurity airportSecurity;
-    private List<ParkingLotInterface> parkList;
     private List cars;
+    ParkingLotInformer parkingLotInformer;
 
     public ParkAnalyser(int efficiency) {
         this.efficiency = efficiency;
-        parkSubscriber = new ParkingLotOwner();
-        airportSecurity = new AirportSecurity();
-        this.parkList = new ArrayList<>();
         this.cars = new ArrayList();
-    }
-
-    public void setEfficiency(int efficiency) {
-        this.efficiency = efficiency;
-    }
-
-    public void subscribeParkingLotInterface(ParkingLotInterface parkLot) {
-        this.parkList.add(parkLot);
+        this.parkingLotInformer = new ParkingLotInformer();
     }
 
     public boolean parkCar(Object car)
     {
-        if (this.cars.size() == efficiency)
+        if (presentEfficiency == efficiency)
+        {
+            parkingLotInformer.checkForFullParkingLot();
             throw new ParkingLotException("NOT ENOUGH SPACE", ParkingLotException.ExceptionType.SPACE_UNAVAILABLE);
+        }
         this.car = car;
-        parkSubscriber.checkParking();
-        checkFull();
+        presentEfficiency++;
         return true;
     }
 
-    public void checkFull(){
-        for (ParkingLotInterface parkLot: parkList) {
-            parkLot.isFull();
-        }
-    }
 
     public boolean unParkCar(Object car) {
-        if ( this.car.equals(car)){
+        if ( car.equals(this.car)){
             this.car = null;
             return true;
         }
         if ( this.car == null ){
-            parkSubscriber.lotAvailable();
-            checkAvailable();
+            parkingLotInformer.checkForAvailableParkingLot();
+            return false;
         }
+        parkingLotInformer.checkForAvailableParkingLot();
         throw new ParkingLotException("Car Not Found",ParkingLotException.ExceptionType.CAR_NOT_FOUND);
-    }
-
-    public void checkAvailable(){
-        for (ParkingLotInterface parkLot: parkList) {
-            parkLot.isLotAvailable();
-        }
-    }
-
-    public void subscribeOwner(ParkingLotOwner parkSubscriber) {
-        this.parkSubscriber = parkSubscriber;
     }
 
 }

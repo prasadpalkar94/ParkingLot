@@ -5,6 +5,5 @@ public interface ParkingLotInterface {
 
     public void lotAvailable();
 
-    public boolean isLotAvailable();
 
 }

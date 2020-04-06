@@ -3,21 +3,22 @@ import org.junit.Before;
 import org.junit.Test;
 
 public class ParkingLotTest {
-    ParkAnalyser parkAnalyser;
     Object car ;
     ParkingLotOwner owner;
     AirportSecurity airportSecurity;
+    ParkingLotInformer parkingLotInformer;
 
     @Before
     public void setUp() throws Exception {
-        parkAnalyser = new ParkAnalyser(2);
         car = new Object();
         owner = new ParkingLotOwner();
         airportSecurity = new AirportSecurity();
+        parkingLotInformer = new ParkingLotInformer();
     }
 
     @Test
     public void checkConditionFor_ParkTheCar_ShouldReturnTrue() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(1);
             boolean check = parkAnalyser.parkCar(car);
             Assert.assertEquals(true, check);
 
@@ -25,6 +26,7 @@ public class ParkingLotTest {
 
     @Test
     public void checkConditionFor_UnParkTheCar_ShouldReturnTrue() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(1);
         parkAnalyser.parkCar(car);
         boolean check = parkAnalyser.unParkCar(car);
         Assert.assertEquals(true,check);
@@ -33,48 +35,40 @@ public class ParkingLotTest {
     @Test
     public void  checkCondition_whetherParkingLotIsFull_SoThatPutOutSign() {
         try {
+            ParkAnalyser parkAnalyser = new ParkAnalyser(1);
             parkAnalyser.parkCar(car);
             parkAnalyser.parkCar(car);
+            Assert.assertEquals(true, parkingLotInformer.owner.isFull());
         } catch (ParkingLotException e) {
             Assert.assertEquals("NOT ENOUGH SPACE", e.getMessage());
         }
     }
 
-    @Test
-    public void checkCondition_whetherParkingLotIsFull_ShouldReturnTrue() {
-        parkAnalyser.subscribeOwner(owner);
-        try {
-              parkAnalyser.parkCar(car);
-              parkAnalyser.parkCar(new Object());
-            } catch (ParkingLotException e) {
-            Assert.assertEquals(true,owner.isFull());
-        }
 
-     }
 
     @Test
     public void checkCondition_whetherParkingLotIsFull_ShouldRedirectAirportSecurity() {
-
-        parkAnalyser.subscribeParkingLotInterface(airportSecurity);
+        ParkAnalyser parkAnalyser = new ParkAnalyser(2);
         try {
             parkAnalyser.parkCar(car);
             parkAnalyser.parkCar(new Object());
             parkAnalyser.parkCar(car);
         } catch (ParkingLotException e) {
-            Assert.assertEquals(true,airportSecurity.isFull());
+            Assert.assertEquals(true,parkAnalyser.parkingLotInformer.owner.isFull());
         }
     }
 
     @Test
     public void checkCondition_WhetherParkingLotHasSpaceAvailable() {
-        parkAnalyser.subscribeOwner(owner);
+        ParkAnalyser parkAnalyser = new ParkAnalyser(2);
         try {
             parkAnalyser.parkCar(car);
             parkAnalyser.parkCar(new Object());
         } catch (ParkingLotException e) {
-            Assert.assertEquals(true,owner.isLotAvailable());
+            Assert.assertEquals(true,parkAnalyser.parkingLotInformer.security.isFull());
         }
     }
+
 }
 
 

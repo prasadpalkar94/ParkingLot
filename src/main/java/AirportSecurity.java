@@ -1,5 +1,5 @@
 public class AirportSecurity implements ParkingLotInterface {
-    private boolean parkEfficiency;
+    public boolean parkEfficiency = false;
     @Override
     public void checkParking() {
         this.parkEfficiency = true;
@@ -12,11 +12,7 @@ public class AirportSecurity implements ParkingLotInterface {
 
     @Override
     public void lotAvailable() {
-        this.parkEfficiency = true;
+        this.parkEfficiency = false;
     }
 
-    @Override
-    public boolean isLotAvailable() {
-        return this.parkEfficiency;
-    }
 }

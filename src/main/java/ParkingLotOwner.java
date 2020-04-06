@@ -1,5 +1,5 @@
 public class ParkingLotOwner implements ParkingLotInterface {
-    private boolean parkEfficiency;
+    public boolean parkEfficiency = false;
 
     @Override
     public void checkParking() {
@@ -16,8 +16,4 @@ public class ParkingLotOwner implements ParkingLotInterface {
         this.parkEfficiency = true;
     }
 
-    @Override
-    public boolean isLotAvailable() {
-        return this.parkEfficiency;
-    }
 }
