@@ -78,6 +78,18 @@ public class ParkingLotTest {
     }
 
 
+    @Test
+    public void checkConditionFor_FindCar_ShouldReturnSlotNo() {
+         try {
+             ParkAnalyser parkAnalyser = new ParkAnalyser(1);
+             int check = parkAnalyser.parkCar(car, 5);
+             Assert.assertEquals(5, check);
+         } catch (ParkingLotException e){
+             Assert.assertEquals("Ur Car Is NOT Available",ParkingLotException.ExceptionType.CAR_NOT_FOUND);
+         }
+    }
+
+
 
 
 }
