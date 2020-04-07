@@ -7,6 +7,7 @@ public class ParkAnalyser {
     private int presentEfficiency;
     private Object car;
     private List cars;
+    public int slotNo = 0;
     ParkingLotInformer parkingLotInformer;
 
     public ParkAnalyser(int efficiency) {
@@ -25,6 +26,17 @@ public class ParkAnalyser {
         this.car = car;
         presentEfficiency++;
         return true;
+    }
+
+    public int parkCar(Object car,int slotNo) {
+        this.slotNo=slotNo;
+        if (this.car == car || this.slotNo == slotNo ){
+            return slotNo;
+        }
+        if (slotNo == parkingLotInformer.owner.slotNo){
+            return slotNo;
+        }
+        throw new ParkingLotException("Ur Car Is NOT Available",ParkingLotException.ExceptionType.CAR_NOT_FOUND);
     }
 
 

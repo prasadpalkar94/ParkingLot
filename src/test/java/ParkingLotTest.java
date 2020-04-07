@@ -69,6 +69,17 @@ public class ParkingLotTest {
         }
     }
 
+    @Test
+    public void checkConditionFor_ParkingAttendantToParkCar_ShouldReturnTrue() {
+            ParkAnalyser parkAnalyser = new ParkAnalyser(2);
+            parkAnalyser.parkCar(car,1);
+            int check = parkAnalyser.parkCar(car,2);
+            Assert.assertEquals(2,check);
+    }
+
+
+
+
 }
 
 
