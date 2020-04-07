@@ -78,20 +78,31 @@ public class ParkingLotTest {
     }
 
 
+
+
     @Test
     public void checkConditionFor_FindCar_ShouldReturnSlotNo() {
-         try {
-             ParkAnalyser parkAnalyser = new ParkAnalyser(1);
-             int check = parkAnalyser.parkCar(car, 5);
-             Assert.assertEquals(5, check);
-         } catch (ParkingLotException e){
-             Assert.assertEquals("Ur Car Is NOT Available",ParkingLotException.ExceptionType.CAR_NOT_FOUND);
-         }
+        try {
+            ParkAnalyser parkAnalyser = new ParkAnalyser(1);
+            int check = parkAnalyser.parkCar(car, 5);
+            Assert.assertEquals(5, check);
+        } catch (ParkingLotException e) {
+            Assert.assertEquals("Ur Car Is NOT Available", ParkingLotException.ExceptionType.CAR_NOT_FOUND);
+        }
+
+    }
+        @Test
+        public void checkCondition_To_FindCar_ShouldReturnTrue() {
+            ParkAnalyser parkAnalyser = new ParkAnalyser(2);
+            parkAnalyser.parkCar(car,2);
+            owner.setSlot(2);
+            Assert.assertEquals(parkAnalyser.slotNo,owner.slotNo);
+        }
     }
 
 
 
 
-}
+
 
 
