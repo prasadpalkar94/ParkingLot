@@ -14,6 +14,7 @@ public class ParkAnalyser {
         this.efficiency = efficiency;
         this.cars = new ArrayList();
         this.parkingLotInformer = new ParkingLotInformer();
+
     }
 
     public boolean parkCar(Object car)

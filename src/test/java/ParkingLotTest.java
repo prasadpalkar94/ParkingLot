@@ -2,6 +2,8 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDateTime;
+
 public class ParkingLotTest {
     Object car ;
     ParkingLotOwner owner;
@@ -98,7 +100,14 @@ public class ParkingLotTest {
             owner.setSlot(2);
             Assert.assertEquals(parkAnalyser.slotNo,owner.slotNo);
         }
+
+    @Test
+    public void checkCondition_whenCarWasParked_ShouldReturnTime() {
+        ParkingSlot slot = new ParkingSlot(car);
+        slot.setParkedTime(car);
+        Assert.assertEquals(LocalDateTime.now().getMinute(), slot.getParkedTime().getMinute());
     }
+}
 
 
 
