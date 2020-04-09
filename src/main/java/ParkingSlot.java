@@ -6,8 +6,6 @@ public class ParkingSlot {
     private LocalDateTime parkedTime;
     private int slotNo;
 
-
-
     public ParkingSlot(Object car) {
         this.car = car;
     }

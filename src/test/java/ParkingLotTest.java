@@ -107,6 +107,24 @@ public class ParkingLotTest {
         slot.setParkedTime(car);
         Assert.assertEquals(LocalDateTime.now().getMinute(), slot.getParkedTime().getMinute());
     }
+
+    @Test
+    public void checkCondition_ForEvenlyCarPark_ShouldReturnTrue() {
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(5);
+        ParkAnalyser parkAnalyser2 = new ParkAnalyser(5);
+        ParkAnalyser parkAnalyser3 = new ParkAnalyser(5);
+        ParkAnalyser parkAnalyser4 = new ParkAnalyser(5);
+        ParkManagement parkManagement = new ParkManagement();
+        parkManagement.addLot(parkAnalyser1);
+        parkManagement.addLot(parkAnalyser2);
+        parkManagement.addLot(parkAnalyser3);
+        parkManagement.addLot(parkAnalyser4);
+        boolean check1 = parkAnalyser1.parkCar(car);
+        boolean check2 = parkAnalyser2.parkCar(new Object());
+        boolean check3 = parkAnalyser3.parkCar(car);
+        boolean check4 = parkAnalyser4.parkCar(new Object());
+        Assert.assertTrue(check1 && check2 && check3 && check4);
+    }
 }
 
 
