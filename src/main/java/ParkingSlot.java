@@ -6,6 +6,9 @@ public class ParkingSlot {
     private LocalDateTime parkedTime;
     private int slotNo;
 
+
+    public ParkingSlot(int slotNo){ this.slotNo = slotNo; }
+
     public ParkingSlot(Object car) {
         this.car = car;
     }

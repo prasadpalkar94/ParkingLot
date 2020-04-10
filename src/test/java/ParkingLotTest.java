@@ -1,3 +1,4 @@
+import enums.Driver;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -111,19 +112,25 @@ public class ParkingLotTest {
     @Test
     public void checkCondition_ForEvenlyCarPark_ShouldReturnTrue() {
         ParkAnalyser parkAnalyser1 = new ParkAnalyser(5);
+        parkAnalyser1.setEfficiency(10);
         ParkAnalyser parkAnalyser2 = new ParkAnalyser(5);
-        ParkAnalyser parkAnalyser3 = new ParkAnalyser(5);
-        ParkAnalyser parkAnalyser4 = new ParkAnalyser(5);
+        parkAnalyser2.setEfficiency(10);
         ParkManagement parkManagement = new ParkManagement();
         parkManagement.addLot(parkAnalyser1);
         parkManagement.addLot(parkAnalyser2);
-        parkManagement.addLot(parkAnalyser3);
-        parkManagement.addLot(parkAnalyser4);
-        boolean check1 = parkAnalyser1.parkCar(car);
-        boolean check2 = parkAnalyser2.parkCar(new Object());
-        boolean check3 = parkAnalyser3.parkCar(car);
-        boolean check4 = parkAnalyser4.parkCar(new Object());
-        Assert.assertTrue(check1 && check2 && check3 && check4);
+        Object bmw = new Object();
+        Object benz = new Object();
+        Object buggati = new Object();
+        try{
+        boolean check1 = parkManagement.parkCar(car, Driver.NORMAL);
+        boolean check2 = parkManagement.parkCar(bmw,Driver.NORMAL);
+        boolean check3 = parkManagement.parkCar(benz,Driver.NORMAL);
+        boolean check4 = parkManagement.parkCar(buggati,Driver.NORMAL);
+        boolean check5 = parkManagement.parkCar(new Object(),Driver.NORMAL);
+        Assert.assertTrue( check1 && check2 && check3 && check4 && check5);
+    }catch (ParkingLotException e){
+        e.printStackTrace();
+        }
     }
 }
 
