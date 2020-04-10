@@ -132,6 +132,32 @@ public class ParkingLotTest {
         e.printStackTrace();
         }
     }
+
+    @Test
+    public void checkConditionFor_HandiCapDriver_ShouldParkNearestSpaceAvailable(){
+        ParkAnalyser parkAnalyser = new ParkAnalyser(5);
+        parkAnalyser.setEfficiency(10);
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(5);
+        parkAnalyser.setEfficiency(10);
+        ParkManagement parkManagement = new ParkManagement();
+        parkManagement.addLot(parkAnalyser);
+        parkManagement.addLot(parkAnalyser1);
+        Object bmw = new Object();
+        Object audi = new Object();
+        Object benz = new Object();
+        Object skoda = new Object();
+        try {
+            parkManagement.parkCar(bmw, Driver.NORMAL);
+            parkManagement.parkCar(skoda, Driver.HANDICAP);
+            parkManagement.unParkCar(bmw);
+            parkManagement.parkCar(audi, Driver.NORMAL);
+            parkManagement.parkCar(benz, Driver.HANDICAP);
+            int position = parkManagement.findCar(benz);
+            Assert.assertEquals(1, position);
+        } catch (ParkingLotException e) {
+            Assert.assertEquals(ParkingLotException.ExceptionType.CAR_NOT_FOUND, e.type);
+        }
+    }
 }
 
 

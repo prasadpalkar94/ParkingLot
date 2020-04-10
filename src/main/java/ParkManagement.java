@@ -24,9 +24,22 @@ public class ParkManagement {
         return parkedCar;
     }
 
+    public boolean unParkCar(Object car) {
+        for (ParkAnalyser parkAnalyser : this.parkAnalyserList) {
+            return parkAnalyser.unParkCar(car);
+        }
+        throw new ParkingLotException("Car Is Not Present @ Location", ParkingLotException.ExceptionType.CAR_NOT_FOUND);
+    }
+
     public ParkAnalyser getFreeSpaceForParkingLot() {
         return parkAnalyserList.stream().sorted(Comparator.comparing(parkList -> parkList.getEmptySlot().size(),
                 Comparator.reverseOrder())).collect(Collectors.toList()).get(0);
+    }
+
+    public int findCar(Object car) {
+        for (ParkAnalyser parkAnalyser : this.parkAnalyserList)
+            return parkAnalyser.findCar(car);
+        throw new ParkingLotException("Car Is Not Present @ Location", ParkingLotException.ExceptionType.CAR_NOT_FOUND);
     }
 
 
