@@ -18,7 +18,7 @@ public class ParkManagement {
          this.parkAnalyserList.add(parkAnalyser);
     }
 
-    public boolean parkCar(Object car, Driver type) {
+    public boolean parkCar(Object car, Enum type) {
         ParkAnalyser parkAnalyser = getFreeSpaceForParkingLot();
         boolean parkedCar = parkAnalyser.parkCar(car);
         return parkedCar;
@@ -41,6 +41,4 @@ public class ParkManagement {
             return parkAnalyser.findCar(car);
         throw new ParkingLotException("Car Is Not Present @ Location", ParkingLotException.ExceptionType.CAR_NOT_FOUND);
     }
-
-
 }

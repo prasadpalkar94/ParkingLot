@@ -1,3 +1,5 @@
+import enums.Driver;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.IntStream;
@@ -16,13 +18,9 @@ public class ParkAnalyser {
         this.efficiency = efficiency;
         this.parkSlots = new ArrayList<>();
         this.parkingLotInformer = new ParkingLotInformer();
-        setEfficiency(efficiency);
+
     }
 
-    public void setEfficiency(int efficiency) {
-        this.efficiency = efficiency;
-        initialiseLot();
-    }
 
     public int initialiseLot() {
         IntStream.range(0,this.efficiency).forEach(value -> this.parkSlots.add(new ParkingSlot(value)));
@@ -35,6 +33,9 @@ public class ParkAnalyser {
         {
             parkingLotInformer.checkForFullParkingLot();
             throw new ParkingLotException("NOT ENOUGH SPACE", ParkingLotException.ExceptionType.SPACE_UNAVAILABLE);
+        }
+        if (isCarParked(car)) {
+            throw new ParkingLotException("Car Is Already Parked", ParkingLotException.ExceptionType.CAR_PARKED_ALREADY);
         }
         this.car = car;
         presentEfficiency++;
