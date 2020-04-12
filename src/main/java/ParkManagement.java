@@ -9,7 +9,6 @@ public class ParkManagement {
     List<ParkAnalyser> parkAnalyserList;
     private Object car;
 
-
     public ParkManagement() {
         this.parkAnalyserList = new ArrayList<>();
     }
@@ -41,4 +40,14 @@ public class ParkManagement {
             return parkAnalyser.findCar(car);
         throw new ParkingLotException("Car Is Not Present @ Location", ParkingLotException.ExceptionType.CAR_NOT_FOUND);
     }
+
+    public boolean isCarPark(Object car) {
+        for (int slot = 0; slot < this.parkAnalyserList.size(); slot++) {
+            if (this.parkAnalyserList.get(slot).isCarParked(car)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

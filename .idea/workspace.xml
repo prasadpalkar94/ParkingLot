@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/master" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="59dae221-8143-4543-a13b-fff61fdf3d2b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/enums/Cars.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,6 +37,7 @@
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.2.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/ParkAnalyser.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/ParkAnalyser.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/test/ParkingLotTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/test/ParkingLotTest.class" afterDir="false" />
@@ -20,10 +45,10 @@
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" beforeDir="false" afterPath="$PROJECT_DIR$/build/reports/tests/test/packages/default-package.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/TEST-ParkingLotTest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/TEST-ParkingLotTest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/output.bin.idx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/test-results/test/binary/results.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ParkAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParkAnalyser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ParkManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParkManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/ParkingLotException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParkingLotException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/ParkingLotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParkingLotTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -64,14 +89,14 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Pt/g/Parking-Lot-Problem_Gar/Parking-Lot-Problem" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Pt/v/ParkingLot_TDD" />
   </component>
   <component name="RunManager" selected="Gradle.ParkingLotTest">
     <configuration name="ParkingLotTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
@@ -177,8 +202,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.ParkingLotTest" />
-        <item itemvalue="Gradle.ParkingLotTest.checkConditionFor_HandiCapDriver_ShouldParkNearestSpaceAvailable" />
         <item itemvalue="Gradle.ParkingLotTest.checkCondition_ForEvenlyCarPark_ShouldReturnTrue" />
+        <item itemvalue="Gradle.ParkingLotTest.checkConditionFor_HandiCapDriver_ShouldParkNearestSpaceAvailable" />
         <item itemvalue="Gradle.ParkingLotTest.checkCondition_whenCarWasParked_ShouldReturnTime" />
         <item itemvalue="Gradle.ParkingLotTest.checkCondition_To_FindCar_ShouldReturnTrue" />
       </list>
@@ -197,6 +222,30 @@
     </task>
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
@@ -209,26 +258,26 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="524" y="115" width="374" height="562" key="#com.intellij.ide.util.MemberChooser/67.27.1299.741@67.27.1299.741" timestamp="1586462854387" />
-    <state x="499" y="113" width="424" height="567" key="FileChooserDialogImpl" timestamp="1586228449614">
+    <state x="499" y="113" width="424" height="567" key="FileChooserDialogImpl" timestamp="1586685887956">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="499" y="113" width="424" height="567" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1586228449614" />
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom" timestamp="1586505059423">
+    <state x="499" y="113" width="424" height="567" key="FileChooserDialogImpl/67.27.1299.741@67.27.1299.741" timestamp="1586685887956" />
+    <state width="1233" height="162" key="GridCell.Tab.0.bottom" timestamp="1586645262356">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1586505059423" />
-    <state width="1253" height="175" key="GridCell.Tab.0.center" timestamp="1586505059423">
+    <state width="1233" height="162" key="GridCell.Tab.0.bottom/67.27.1299.741@67.27.1299.741" timestamp="1586645262356" />
+    <state width="1233" height="162" key="GridCell.Tab.0.center" timestamp="1586645262356">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1586505059423" />
-    <state width="1253" height="175" key="GridCell.Tab.0.left" timestamp="1586505059423">
+    <state width="1233" height="162" key="GridCell.Tab.0.center/67.27.1299.741@67.27.1299.741" timestamp="1586645262356" />
+    <state width="1233" height="162" key="GridCell.Tab.0.left" timestamp="1586645262356">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1586505059423" />
-    <state width="1253" height="175" key="GridCell.Tab.0.right" timestamp="1586505059423">
+    <state width="1233" height="162" key="GridCell.Tab.0.left/67.27.1299.741@67.27.1299.741" timestamp="1586645262356" />
+    <state width="1233" height="162" key="GridCell.Tab.0.right" timestamp="1586645262356">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state width="1253" height="175" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1586505059423" />
+    <state width="1233" height="162" key="GridCell.Tab.0.right/67.27.1299.741@67.27.1299.741" timestamp="1586645262356" />
     <state width="1253" height="219" key="GridCell.Tab.1.bottom" timestamp="1586000225394">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

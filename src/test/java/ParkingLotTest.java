@@ -1,3 +1,4 @@
+import enums.Cars;
 import enums.Driver;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,6 +11,7 @@ public class ParkingLotTest {
     ParkingLotOwner owner;
     AirportSecurity airportSecurity;
     ParkingLotInformer parkingLotInformer;
+    ParkManagement parkManagement;
 
     @Before
     public void setUp() throws Exception {
@@ -17,6 +19,7 @@ public class ParkingLotTest {
         owner = new ParkingLotOwner();
         airportSecurity = new AirportSecurity();
         parkingLotInformer = new ParkingLotInformer();
+        parkManagement = new ParkManagement();
     }
 
     @Test
@@ -115,7 +118,6 @@ public class ParkingLotTest {
         parkAnalyser1.initialiseLot();
         ParkAnalyser parkAnalyser2 = new ParkAnalyser(5);
         parkAnalyser2.initialiseLot();
-        ParkManagement parkManagement = new ParkManagement();
         parkManagement.addLot(parkAnalyser1);
         parkManagement.addLot(parkAnalyser2);
         Object bmw = new Object();
@@ -139,7 +141,6 @@ public class ParkingLotTest {
         parkAnalyser.initialiseLot();
         ParkAnalyser parkAnalyser1 = new ParkAnalyser(5);
         parkAnalyser1.initialiseLot();
-        ParkManagement parkManagement = new ParkManagement();
         parkManagement.addLot(parkAnalyser);
         parkManagement.addLot(parkAnalyser1);
         Object bmw = new Object();
@@ -159,8 +160,29 @@ public class ParkingLotTest {
         }
     }
 
-
-
+    @Test
+    public void checkConditionsFor_LargeCarsToPark_AtMaximumEnoughSpace_ShouldReturnTrue() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(15);
+        parkAnalyser.initialiseLot();
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(10);
+        parkAnalyser1.initialiseLot();
+        parkManagement.addLot(parkAnalyser);
+        parkManagement.addLot(parkAnalyser1);
+        Object bmw = new Object();
+        Object audi = new Object();
+        Object benz = new Object();
+        Object skoda = new Object();
+        try {
+            parkManagement.parkCar(bmw, Cars.SMALL);
+            parkManagement.parkCar(skoda, Cars.LARGE);
+            parkManagement.parkCar(audi,Cars.SMALL);
+            parkManagement.parkCar(benz, Cars.SMALL);
+            boolean park = parkManagement.isCarPark(skoda);
+            Assert.assertEquals(true, park);
+        } catch (ParkingLotException e) {
+            e.printStackTrace();
+        }
+    }
 }
 
 
