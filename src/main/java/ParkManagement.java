@@ -59,10 +59,10 @@ public class ParkManagement {
         return parkingLotsList;
     }
 
-    public List findBlueCarByPlateNo(String name,String plateNo) {
+    public List findBlueCarByPlateNo(String name,String plateNo,String color) {
         List<ArrayList> parkingLotsList = new ArrayList<>();
         for (ParkAnalyser list : this.parkAnalyserList) {
-            ArrayList<Integer> fieldList = list.findBlueCarOnPlateNo(name,plateNo);
+            ArrayList<String> fieldList = list.findBlueCarOnPlateNo(name,plateNo,color);
             parkingLotsList.add(fieldList);
         }
         return parkingLotsList;
