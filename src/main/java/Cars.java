@@ -1,3 +1,5 @@
+import enums.CarSize;
+import enums.Driver;
 import enums.Location;
 
 public class Cars {
@@ -5,6 +7,8 @@ public class Cars {
     private Location location;
     private String plateNo;
     private String name;
+    private CarSize size;
+    private Driver type;
 
     public Cars() {
     }
@@ -24,35 +28,38 @@ public class Cars {
         this.name = name;
     }
 
+    public Cars(String color, Location location, String plateNo, String name, CarSize size, Driver type) {
+        this.color = color;
+        this.location = location;
+        this.plateNo = plateNo;
+        this.name = name;
+        this.size = size;
+        this.type = type;
+    }
+
     public String getColor() {
         return color;
     }
 
-    public void setColor(String color) {
-        this.color = color;
-    }
 
     public Location getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
-        this.location = location;
+
+    public String getPlateNo() {
+        return plateNo;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public CarSize getSize() {
+        return size;
     }
 
-    public String getPlateNo() {
-        return plateNo;
-    }
-
-    public void setPlateNo(String plateNo) {
-        this.plateNo = plateNo;
+    public Driver getType() {
+        return type;
     }
 }

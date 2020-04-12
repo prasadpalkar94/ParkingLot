@@ -1,4 +1,6 @@
+import enums.CarSize;
 import enums.Driver;
+import enums.Location;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -137,4 +139,14 @@ public class ParkAnalyser {
     }
 
 
+    public List<String> getSmallCarsAndHandicapDriversDetails(Driver driver, CarSize size) {
+        List<String> blueToyotaList = new ArrayList<>();
+        blueToyotaList = this.parkSlots.stream()
+                .filter(parkingSlot -> parkingSlot.getCar() != null)
+                .filter(parkingSlot -> parkingSlot.getCar().getSize().equals(size))
+                .filter(parkingSlot -> parkingSlot.getCar().getType().equals(driver))
+                .map(parkingSlot -> (parkingSlot.getName())+"  "+(parkingSlot.getSlotNo())+"  "+(parkingSlot.getCar().getPlateNo()))
+                .collect(Collectors.toList());
+        return blueToyotaList;
+    }
 }

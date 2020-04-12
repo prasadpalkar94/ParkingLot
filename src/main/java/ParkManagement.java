@@ -1,5 +1,3 @@
-import enums.Driver;
-
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -18,6 +16,12 @@ public class ParkManagement {
     }
 
     public boolean parkCar(Cars car, Enum type) {
+        ParkAnalyser parkAnalyser = getFreeSpaceForParkingLot();
+        boolean parkedCar = parkAnalyser.parkCar(car);
+        return parkedCar;
+    }
+
+    public boolean parkCar(Cars car) {
         ParkAnalyser parkAnalyser = getFreeSpaceForParkingLot();
         boolean parkedCar = parkAnalyser.parkCar(car);
         return parkedCar;
@@ -60,9 +64,9 @@ public class ParkManagement {
     }
 
     public List findBlueCarByPlateNo(String name,String plateNo,String color) {
-        List<ArrayList> parkingLotsList = new ArrayList<>();
+        List<List<String>> parkingLotsList = new ArrayList<>();
         for (ParkAnalyser list : this.parkAnalyserList) {
-            ArrayList<String> fieldList = list.findBlueCarOnPlateNo(name,plateNo,color);
+            List<String> fieldList = list.findBlueCarOnPlateNo(name, plateNo, color);
             parkingLotsList.add(fieldList);
         }
         return parkingLotsList;
