@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ParkingLotTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-04-12T12:37:06" hostname="prasad" time="0.015">
+<testsuite name="ParkingLotTest" tests="1" skipped="0" failures="1" errors="0" timestamp="2020-04-12T18:38:59" hostname="prasad" time="0.012">
   <properties/>
-  <testcase name="checkConditionsFor_LargeCarsToPark_AtMaximumEnoughSpace_ShouldReturnTrue" classname="ParkingLotTest" time="0.015">
-    <failure message="java.lang.AssertionError: expected:&lt;true&gt; but was:&lt;false&gt;" type="java.lang.AssertionError">java.lang.AssertionError: expected:&lt;true&gt; but was:&lt;false&gt;
-	at org.junit.Assert.fail(Assert.java:88)
-	at org.junit.Assert.failNotEquals(Assert.java:834)
-	at org.junit.Assert.assertEquals(Assert.java:118)
-	at org.junit.Assert.assertEquals(Assert.java:144)
-	at ParkingLotTest.checkConditionsFor_LargeCarsToPark_AtMaximumEnoughSpace_ShouldReturnTrue(ParkingLotTest.java:181)
+  <testcase name="checkConditions_ToFindAllWhiteCars_ShouldReturnSlotList" classname="ParkingLotTest" time="0.012">
+    <failure message="java.lang.NullPointerException" type="java.lang.NullPointerException">java.lang.NullPointerException
+	at ParkAnalyser.findCarOnType(ParkAnalyser.java:94)
+	at ParkingLotTest.checkConditions_ToFindAllWhiteCars_ShouldReturnSlotList(ParkingLotTest.java:211)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)

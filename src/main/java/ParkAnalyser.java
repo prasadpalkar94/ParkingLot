@@ -8,11 +8,14 @@ public class ParkAnalyser {
 
     private int efficiency;
     private int presentEfficiency;
-    private Object car;
+    private Cars car;
     private ParkingSlot parkingSlot;
     private List<ParkingSlot> parkSlots;
     public int slotNo = 0;
     ParkingLotInformer parkingLotInformer;
+
+    public ParkAnalyser() {
+    }
 
     public ParkAnalyser(int efficiency) {
         this.efficiency = efficiency;
@@ -27,7 +30,7 @@ public class ParkAnalyser {
         return parkSlots.size();
     }
 
-    public boolean parkCar(Object car)
+    public boolean parkCar(Cars car)
     {
         if (presentEfficiency == efficiency)
         {
@@ -42,7 +45,7 @@ public class ParkAnalyser {
         return true;
     }
 
-    public int parkCar(Object car,int slotNo) {
+    public int parkCar(Cars car,int slotNo) {
         this.slotNo=slotNo;
         if (this.car == car || this.slotNo == slotNo ){
             return slotNo;
@@ -60,7 +63,7 @@ public class ParkAnalyser {
     }
 
 
-    public boolean unParkCar(Object car) {
+    public boolean unParkCar(Cars car) {
         if ( car.equals(this.car)){
             this.car = null;
             return true;
@@ -73,14 +76,26 @@ public class ParkAnalyser {
         throw new ParkingLotException("Car Not Found",ParkingLotException.ExceptionType.CAR_NOT_FOUND);
     }
 
-    public boolean isCarParked(Object car) {
+    public boolean isCarParked(Cars car) {
         parkingSlot = new ParkingSlot(car);
         return this.parkSlots.contains(parkingSlot);
     }
 
-    public int findCar(Object car) {
+    public int findCar(Cars car) {
         if (isCarParked(car))
             return this.parkSlots.indexOf(parkingSlot);
         throw new ParkingLotException("Car Is Not Present At Location", ParkingLotException.ExceptionType.CAR_NOT_FOUND);
+    }
+
+    public ArrayList<Integer> findCarOnType(String color) {
+        ArrayList<Integer> whiteCarList = new ArrayList<>();
+        for (int slot = 0; slot < this.parkSlots.size(); slot++) {
+            if ((this.parkSlots.get(slot) != null)) {
+                if (this.parkSlots.get(slot).car.getColor().equals(color)) {
+                    whiteCarList.add(slot);
+                }
+            }
+        }
+        return whiteCarList;
     }
 }

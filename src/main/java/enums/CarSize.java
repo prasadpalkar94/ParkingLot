@@ -1,5 +1,5 @@
 package enums;
 
-public enum Cars {
+public enum CarSize {
     LARGE,SMALL
 }
