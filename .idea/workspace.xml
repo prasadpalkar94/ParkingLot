@@ -26,7 +26,11 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="59dae221-8143-4543-a13b-fff61fdf3d2b" name="Default Changelist" comment="" />
+    <list default="true" id="59dae221-8143-4543-a13b-fff61fdf3d2b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ParkAnalyser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ParkAnalyser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ParkingLotTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ParkingLotTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -283,9 +287,9 @@
       <screen x="67" y="27" width="1299" height="741" />
     </state>
     <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1586591262649" />
-    <state x="380" y="175" key="run.anything.popup" timestamp="1586466776786">
+    <state x="380" y="175" width="672" height="677" key="run.anything.popup" timestamp="1586724685282">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="380" y="175" key="run.anything.popup/67.27.1299.741@67.27.1299.741" timestamp="1586466776786" />
+    <state x="380" y="175" width="672" height="677" key="run.anything.popup/67.27.1299.741@67.27.1299.741" timestamp="1586724685282" />
   </component>
 </project>

@@ -208,9 +208,9 @@ public class ParkingLotTest {
             parkManagement.parkCar(audi, Driver.NORMAL);
             parkManagement.parkCar(benz, Driver.HANDICAP);
             parkManagement.parkCar(honda, Driver.NORMAL);
-            List whiteCarList = parkManagement.findCarByType("white");
+            List<Integer> whiteCarList = parkManagement.findCarByType("white");
             System.out.println(whiteCarList.toString());
-            List  output= new ArrayList();
+            List<Integer> output= new ArrayList();
             output.add(1);
             output.add(2);
             output.add(4);
@@ -238,10 +238,10 @@ public class ParkingLotTest {
             parkManagement.parkCar(audi, Driver.NORMAL);
             parkManagement.parkCar(benz, Driver.HANDICAP);
             parkManagement.parkCar(honda, Driver.NORMAL);
-            List blueToyotaCarList = parkManagement.findBlueCarByPlateNo("Toyota","MH-13-BO1945","blue");
-            List  output= new ArrayList();
-            output.add(0);
-            output.add(2);
+            List<String> blueToyotaCarList = parkManagement.findBlueCarByPlateNo("Toyota","MH-13-BO1945","blue");
+            List<String> output= new ArrayList();
+            output.add("0 Toyota MH-13-BO1945");
+            output.add("2 Toyota MH-13-AD1845");
             Assert.assertEquals(output,blueToyotaCarList.get(0));
         } catch (ParkingLotException e) {
         }
@@ -266,12 +266,41 @@ public class ParkingLotTest {
             parkManagement.parkCar(audi, Driver.NORMAL);
             parkManagement.parkCar(benz, Driver.HANDICAP);
             parkManagement.parkCar(honda, Driver.NORMAL);
-            List CarList = parkManagement.findCarByType("white");
+            List<Integer> CarList = parkManagement.findCarByType("white");
             System.out.println(CarList.toString());
-            List  output= new ArrayList();
+            List<Integer>  output= new ArrayList();
             output.add(0);
             output.add(2);
             Assert.assertEquals(output,CarList.get(0));
+        } catch (ParkingLotException e) {
+        }
+    }
+
+    @Test
+    public void checkCondition_ForCarsParkedBefore30mins_ShouldReturnList() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(15);
+        parkAnalyser.initialiseLot();
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(15);
+        parkAnalyser1.initialiseLot();
+        parkManagement.addLot(parkAnalyser);
+        parkManagement.addLot(parkAnalyser1);
+        Cars bmw = new Cars("bmw");
+        Cars audi = new Cars("skoda");
+        Cars benz = new Cars("bmw");
+        Cars skoda = new Cars("audi");
+        Cars honda = new Cars("honda");
+        try {
+            parkManagement.parkCar(bmw, Driver.NORMAL);
+            parkManagement.parkCar(skoda, Driver.HANDICAP);
+            parkManagement.parkCar(audi, Driver.NORMAL);
+            parkManagement.parkCar(benz, Driver.HANDICAP);
+            parkManagement.parkCar(honda, Driver.NORMAL);
+            List<String> CarList = parkAnalyser.getCarsWhichParkedBefore30Min();
+            System.out.println(CarList.toString());
+            List<String>  output= new ArrayList();
+            output.add("0 Toyota MH-13-BO1945");
+            output.add("2 Toyota MH-13-BO1945");
+            Assert.assertEquals(output,CarList);
         } catch (ParkingLotException e) {
         }
     }

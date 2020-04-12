@@ -1,8 +1,10 @@
 import enums.Driver;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 
 public class ParkAnalyser {
@@ -100,18 +102,15 @@ public class ParkAnalyser {
         return whiteCarList;
     }
 
-
-    public ArrayList<String> findBlueCarOnPlateNo(String name, String plateNo,String color) {
-        List<String> blueCarList = new ArrayList<>();
-        blueCarList = this.parkSlots.stream()
+    public List<String> findBlueCarOnPlateNo(String name, String plateNo,String color) {
+        List<String> blueToyotaList = new ArrayList<>();
+        blueToyotaList = this.parkSlots.stream()
                 .filter(parkingSlot -> parkingSlot.getCar() != null)
                 .filter(parkingSlot -> parkingSlot.getCar().getName().equals(name))
                 .filter(parkingSlot -> parkingSlot.getCar().getColor().equals(color))
-                .map(parkingSlot -> {
-                    return ((parkingSlot.getSlotNo()) + "  " +parkingSlot.getName()+" "+ (parkingSlot.car.getPlateNo()))
-                            .collect(Collectors.toList());
-                };
-        return (ArrayList<String>) blueCarList;
+                .map(parkingSlot -> (parkingSlot.getName())+"  "+(parkingSlot.getSlotNo())+"  "+(parkingSlot.getCar().getPlateNo()))
+                .collect(Collectors.toList());
+        return blueToyotaList;
     }
 
     public ArrayList<Integer> findCarOnName(String name) {
@@ -125,4 +124,17 @@ public class ParkAnalyser {
         }
         return bmwList;
     }
+
+    public List<String> getCarsWhichParkedBefore30Min() {
+        List<String> befor30MinParkedCarsList = new ArrayList<>();
+        befor30MinParkedCarsList = this.parkSlots.stream()
+                .filter(parkingSlot -> parkingSlot.getCar() != null)
+                .filter(parkingSlot -> parkingSlot.getParkedTime().getMinute()- LocalDateTime.now().getMinute() <=30)
+                .map(parkingSlot -> ((parkingSlot.getSlotNo()))+" "+(parkingSlot.getCar().getName())+" "+(parkingSlot.getCar().getPlateNo()))
+                .collect(Collectors.toList());
+        return befor30MinParkedCarsList;
+
+    }
+
+
 }
