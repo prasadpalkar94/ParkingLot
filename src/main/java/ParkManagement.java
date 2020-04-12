@@ -75,7 +75,7 @@ public class ParkManagement {
     public List findCarByName(String name) {
         List<ArrayList> parkingLotsList = new ArrayList<>();
         for (ParkAnalyser list : this.parkAnalyserList) {
-            ArrayList<Integer> fieldList = list.findCarOnName(name);
+            ArrayList<Integer> fieldList = list.findCar(name);
             parkingLotsList.add(fieldList);
         }
         return parkingLotsList;

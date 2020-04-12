@@ -115,7 +115,7 @@ public class ParkAnalyser {
         return blueToyotaList;
     }
 
-    public ArrayList<Integer> findCarOnName(String name) {
+    public ArrayList<Integer> findCar(String name) {
         ArrayList<Integer> bmwList = new ArrayList<>();
         for (int slot = 0; slot < this.parkSlots.size(); slot++) {
             if ((this.parkSlots.get(slot) != null)) {
@@ -148,5 +148,18 @@ public class ParkAnalyser {
                 .map(parkingSlot -> (parkingSlot.getName())+"  "+(parkingSlot.getSlotNo())+"  "+(parkingSlot.getCar().getPlateNo()))
                 .collect(Collectors.toList());
         return blueToyotaList;
+    }
+
+
+    public List<Integer> findCarByPlateNo(String plateNo) {
+        List<Integer> carListByPlateNo = new ArrayList<>();
+        for (int slot = 0; slot < this.parkSlots.size(); slot++) {
+            if ((this.parkSlots.get(slot) != null)) {
+                if (this.parkSlots.get(slot).car.getPlateNo().equals(plateNo)) {
+                    carListByPlateNo.add(slot);
+                }
+            }
+        }
+        return carListByPlateNo;
     }
 }

@@ -305,7 +305,6 @@ public class ParkingLotTest {
         }
     }
 
-    //String color, Location location, String plateNo, String name, CarSize size
     @Test
     public void checkCondition_ToFindAllSmallHandicapCars_ShouldReturnList() {
         ParkAnalyser parkAnalyser = new ParkAnalyser(15);
@@ -330,6 +329,35 @@ public class ParkingLotTest {
             List<String>  output= new ArrayList();
             output.add("2 blue Location.VASHI MH-13-BO1845 BENZ CarSize.SMALL Driver.HANDICAP");
             output.add("4 black Location.ANDHERI MH-13-BO1745 HONDA CarSize.SMALL Driver.HANDICAP");
+            Assert.assertEquals(output,CarList);
+        } catch (ParkingLotException e) {
+        }
+    }
+
+    @Test
+    public void checkCondition_ToFindSamePlateNo_ShouldReturnList() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(15);
+        parkAnalyser.initialiseLot();
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(15);
+        parkAnalyser1.initialiseLot();
+        parkManagement.addLot(parkAnalyser);
+        parkManagement.addLot(parkAnalyser1);
+        Cars bmw = new Cars("blue",Location.PANVEL,"MH-13-BO1945","BMW",CarSize.SMALL,Driver.HANDICAP);
+        Cars audi = new Cars("white",Location.ANDHERI,"MH-13-AD1845","AUDI",CarSize.LARGE,Driver.NORMAL);
+        Cars benz = new Cars("blue",Location.VASHI,"MH-13-BO1845","BENZ",CarSize.SMALL,Driver.HANDICAP);
+        Cars skoda = new Cars("green",Location.PANVEL,"MH-13-AD1845","SKODA",CarSize.LARGE,Driver.NORMAL);
+        Cars honda = new Cars("black",Location.ANDHERI,"MH-13-BO1745","HONDA",CarSize.SMALL,Driver.HANDICAP);
+        try {
+            parkManagement.parkCar(bmw);
+            parkManagement.parkCar(skoda);
+            parkManagement.parkCar(audi);
+            parkManagement.parkCar(benz);
+            parkManagement.parkCar(honda);
+            List<Integer> CarList = parkAnalyser.findCarByPlateNo();
+            System.out.println(CarList.toString());
+            List<Integer>  output= new ArrayList();
+            output.add(2);
+            output.add(4);
             Assert.assertEquals(output,CarList);
         } catch (ParkingLotException e) {
         }
