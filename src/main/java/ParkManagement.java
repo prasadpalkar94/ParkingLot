@@ -59,4 +59,14 @@ public class ParkManagement {
         return parkingLotsList;
     }
 
+    public List findBlueCarByPlateNo(String name,String plateNo) {
+        List<ArrayList> parkingLotsList = new ArrayList<>();
+        for (ParkAnalyser list : this.parkAnalyserList) {
+            ArrayList<Integer> fieldList = list.findBlueCarOnPlateNo(name,plateNo);
+            parkingLotsList.add(fieldList);
+        }
+        return parkingLotsList;
+    }
+
+
 }

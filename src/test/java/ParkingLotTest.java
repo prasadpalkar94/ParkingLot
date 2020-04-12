@@ -218,6 +218,34 @@ public class ParkingLotTest {
         } catch (ParkingLotException e) {
         }
     }
+
+    @Test
+    public void checkConditions_ToFindAllBlueToyotaCars_ShouldReturnSlotList() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(15);
+        parkAnalyser.initialiseLot();
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(15);
+        parkAnalyser1.initialiseLot();
+        parkManagement.addLot(parkAnalyser);
+        parkManagement.addLot(parkAnalyser1);
+        Cars bmw = new Cars("blue", "Toyota","MH-13-BO1945");
+        Cars audi = new Cars("white","Swift","MH-14-BR1887");
+        Cars benz = new Cars("blue","Toyota","MH-13-AD1845");
+        Cars skoda = new Cars("black","Benz","MH-13-AD1748");
+        Cars honda = new Cars("white","Audi","MH-13-AD1987");
+        try {
+            parkManagement.parkCar(bmw, Driver.NORMAL);
+            parkManagement.parkCar(skoda, Driver.HANDICAP);
+            parkManagement.parkCar(audi, Driver.NORMAL);
+            parkManagement.parkCar(benz, Driver.HANDICAP);
+            parkManagement.parkCar(honda, Driver.NORMAL);
+            List blueToyotaCarList = parkManagement.findBlueCarByPlateNo("blue","MH-13-BO1945");
+            List  output= new ArrayList();
+            output.add(0);
+            output.add(2);
+            Assert.assertEquals(output,blueToyotaCarList.get(0));
+        } catch (ParkingLotException e) {
+        }
+    }
 }
 
 

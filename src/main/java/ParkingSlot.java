@@ -7,6 +7,10 @@ public class ParkingSlot {
     private int slotNo;
 
 
+
+    private String name;
+
+
     public ParkingSlot(int slotNo){ this.slotNo = slotNo; }
 
     public ParkingSlot(Cars car) {
@@ -27,5 +31,19 @@ public class ParkingSlot {
 
     public int getSlotNo() {
         return slotNo;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return "ParkingSlot{" +
+                "car=" + car +
+                ", parkedTime=" + parkedTime +
+                ", slotNo=" + slotNo +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

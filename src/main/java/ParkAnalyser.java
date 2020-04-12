@@ -2,7 +2,8 @@ import enums.Driver;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.IntStream;
+import java.util.stream.Collectors;
+
 
 public class ParkAnalyser {
 
@@ -98,4 +99,19 @@ public class ParkAnalyser {
         }
         return whiteCarList;
     }
+
+
+    public ArrayList<String> findBlueCarOnPlateNo(String name, String plateNo,String color) {
+        List<String> blueCarList = new ArrayList<>();
+        blueCarList = this.parkSlots.stream()
+                .filter(parkingSlot -> parkingSlot.getCar() != null)
+                .filter(parkingSlot -> parkingSlot.getCar().getName().equals(name))
+                .filter(parkingSlot -> parkingSlot.getCar().getColor().equals(color))
+                .map(parkingSlot -> {
+                    return ((parkingSlot.getSlotNo()) + "  " +parkingSlot.getName()+" "+ (parkingSlot.car.getPlateNo()))
+                            .collect(Collectors.toList());
+                };
+        return (ArrayList<String>) blueCarList;
+    }
+
 }
