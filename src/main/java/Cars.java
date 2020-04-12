@@ -20,6 +20,10 @@ public class Cars {
         this.plateNo = plateNo;
     }
 
+    public Cars(String name){
+        this.name = name;
+    }
+
     public String getColor() {
         return color;
     }

@@ -238,11 +238,40 @@ public class ParkingLotTest {
             parkManagement.parkCar(audi, Driver.NORMAL);
             parkManagement.parkCar(benz, Driver.HANDICAP);
             parkManagement.parkCar(honda, Driver.NORMAL);
-            List blueToyotaCarList = parkManagement.findBlueCarByPlateNo("blue","MH-13-BO1945");
+            List blueToyotaCarList = parkManagement.findBlueCarByPlateNo("Toyota","MH-13-BO1945","blue");
             List  output= new ArrayList();
             output.add(0);
             output.add(2);
             Assert.assertEquals(output,blueToyotaCarList.get(0));
+        } catch (ParkingLotException e) {
+        }
+    }
+
+    @Test
+    public void checkCondition_ToFindBMWCars_ShouldReturnList() {
+        ParkAnalyser parkAnalyser = new ParkAnalyser(15);
+        parkAnalyser.initialiseLot();
+        ParkAnalyser parkAnalyser1 = new ParkAnalyser(15);
+        parkAnalyser1.initialiseLot();
+        parkManagement.addLot(parkAnalyser);
+        parkManagement.addLot(parkAnalyser1);
+        Cars bmw = new Cars("bmw");
+        Cars audi = new Cars("skoda");
+        Cars benz = new Cars("bmw");
+        Cars skoda = new Cars("audi");
+        Cars honda = new Cars("honda");
+        try {
+            parkManagement.parkCar(bmw, Driver.NORMAL);
+            parkManagement.parkCar(skoda, Driver.HANDICAP);
+            parkManagement.parkCar(audi, Driver.NORMAL);
+            parkManagement.parkCar(benz, Driver.HANDICAP);
+            parkManagement.parkCar(honda, Driver.NORMAL);
+            List CarList = parkManagement.findCarByType("white");
+            System.out.println(CarList.toString());
+            List  output= new ArrayList();
+            output.add(0);
+            output.add(2);
+            Assert.assertEquals(output,CarList.get(0));
         } catch (ParkingLotException e) {
         }
     }

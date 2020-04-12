@@ -114,4 +114,15 @@ public class ParkAnalyser {
         return (ArrayList<String>) blueCarList;
     }
 
+    public ArrayList<Integer> findCarOnName(String name) {
+        ArrayList<Integer> bmwList = new ArrayList<>();
+        for (int slot = 0; slot < this.parkSlots.size(); slot++) {
+            if ((this.parkSlots.get(slot) != null)) {
+                if (this.parkSlots.get(slot).car.getName().equals(name)) {
+                    bmwList.add(slot);
+                }
+            }
+        }
+        return bmwList;
+    }
 }
